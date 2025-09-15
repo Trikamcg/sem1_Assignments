@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Feedback Form</title>
+  </head>
+  <body>
+    <h1>CodingGita Feedback Form</h1>
+    <p>We value your feedback. Please fill out this form to help us improve.</p>
+
+    <form action="#" method="post">
+      <!-- Name -->
+      <p>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name">
+      </p>
+
+      <!-- Email -->
+      <p>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="name@example.com">
+      </p>
+
+      <!-- Product/Service Selection -->
+      <p>
+        <label for="product">Which course/workshop are you giving feedback for?</label>
+        <select id="product" name="product">
+          <option value="">Select one</option>
+          <option>MERN Stack Course</option>
+          <option>DSA Bootcamp</option>
+          <option>Web Development Workshop</option>
+        </select>
+      </p>
+
+      <!-- Star Rating (Radio, grouped) -->
+      <fieldset>
+        <legend>Rate your experience</legend>
+        <p>
+          <input type="radio" id="star1" name="rating" value="1">
+          <label for="star1">1 Star</label>
+        </p>
+        <p>
+          <input type="radio" id="star2" name="rating" value="2">
+          <label for="star2">2 Stars</label>
+        </p>
+        <p>
+          <input type="radio" id="star3" name="rating" value="3">
+          <label for="star3">3 Stars</label>
+        </p>
+        <p>
+          <input type="radio" id="star4" name="rating" value="4">
+          <label for="star4">4 Stars</label>
+        </p>
+        <p>
+          <input type="radio" id="star5" name="rating" value="5">
+          <label for="star5">5 Stars</label>
+        </p>
+      </fieldset>
+
+      <!-- Checkboxes (Feedback Type) -->
+      <p>What aspects are you giving feedback on?</p>
+      <p>
+        <input type="checkbox" id="content" name="feedbackType" value="Content Quality">
+        <label for="content">Content Quality</label>
+      </p>
+      <p>
+        <input type="checkbox" id="teaching" name="feedbackType" value="Teaching Method">
+        <label for="teaching">Teaching Method</label>
+      </p>
+      <p>
+        <input type="checkbox" id="support" name="feedbackType" value="Support & Guidance">
+        <label for="support">Support &amp; Guidance</label>
+      </p>
+      <p>
+        <input type="checkbox" id="overall" name="feedbackType" value="Overall Experience">
+        <label for="overall">Overall Experience</label>
+      </p>
+
+      <!-- Suggestions -->
+      <p>
+        <label for="suggestions">Additional Suggestions:</label><br>
+        <textarea id="suggestions" name="suggestions" rows="4" cols="50" placeholder="Share detailed suggestions..."></textarea>
+      </p>
+
+      <!-- Satisfaction Slider -->
+      <p>
+        <label for="satisfaction">How satisfied are you? (1–10 scale)</label><br>
+        <input type="range" id="satisfaction" name="satisfaction" min="1" max="10" value="5">
+      </p>
+
+      <!-- Recommendation (Yes/No) -->
+      <fieldset>
+        <legend>Would you recommend us to a friend?</legend>
+        <p>
+          <input type="radio" id="recYes" name="recommend" value="Yes">
+          <label for="recYes">Yes</label>
+        </p>
+        <p>
+          <input type="radio" id="recNo" name="recommend" value="No">
+          <label for="recNo">No</label>
+        </p>
+      </fieldset>
+
+      <!-- Date of Feedback -->
+      <p>
+        <label for="date">Date of Feedback:</label>
+        <input type="date" id="date" name="date">
+      </p>
+
+      <!-- Buttons -->
+      <p>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+      </p>
+    </form>
+  </body>
+</html>

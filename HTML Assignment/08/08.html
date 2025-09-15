@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>HTML Elements Showcase</title>
+  </head>
+  <body id="top">
+    <h1>HTML Elements Showcase – Inline vs Block</h1>
+    <p>
+      In HTML, elements are broadly divided into block-level and inline. Block elements start on a new line and typically take the full available width, while inline elements flow within a line and occupy only the space their content needs.
+    </p>
+
+    <!-- Top navigation -->
+    <nav>
+      <p>
+        <a href="#block">Block Elements</a> |
+        <a href="#inline">Inline Elements</a> |
+        <a href="#comparison">Comparison</a>
+      </p>
+    </nav>
+
+    <hr>
+
+    <!-- Section 1: Block Elements -->
+    <section id="block">
+      <h2>Block Elements</h2>
+
+      <!-- div -->
+      <div>Example: This is a div container holding some text.</div>
+      <p>Explanation: div is a generic block-level container used to group content.</p>
+
+      <!-- p -->
+      <p>Example: This is a paragraph demonstrating the p element.</p>
+      <p>Explanation: p defines a paragraph and starts on a new line.</p>
+
+      <!-- h1–h6 -->
+      <h1>Example: Heading level 1</h1>
+      <p>Explanation: h1 is the highest-level section heading.</p>
+
+      <h2>Example: Heading level 2</h2>
+      <p>Explanation: h2 is used for major subsections.</p>
+
+      <h3>Example: Heading level 3</h3>
+      <p>Explanation: h3 denotes a subsection of h2.</p>
+
+      <h4>Example: Heading level 4</h4>
+      <p>Explanation: h4 denotes a deeper subsection.</p>
+
+      <h5>Example: Heading level 5</h5>
+      <p>Explanation: h5 denotes a smaller subsection.</p>
+
+      <h6>Example: Heading level 6</h6>
+      <p>Explanation: h6 is the lowest-level heading.</p>
+
+      <!-- ul -->
+      <ul>
+        <li>Example: Unordered list item A</li>
+        <li>Example: Unordered list item B</li>
+      </ul>
+      <p>Explanation: ul wraps a list of items without numeric order.</p>
+
+      <!-- ol -->
+      <ol>
+        <li>Example: Ordered list item 1</li>
+        <li>Example: Ordered list item 2</li>
+      </ol>
+      <p>Explanation: ol wraps a list of items in numeric order.</p>
+
+      <!-- blockquote -->
+      <blockquote>
+        “Coding is the new literacy.”
+      </blockquote>
+      <p>Explanation: blockquote is a block container for longer quotations.</p>
+
+      <!-- hr -->
+      <hr>
+      <p>Explanation: hr represents a thematic break between sections.</p>
+
+      <!-- table (2×2) -->
+      <table border="1" cellpadding="4" cellspacing="0">
+        <caption>Sample 2×2 Table</caption>
+        <tr>
+          <th>H1</th>
+          <th>H2</th>
+        </tr>
+        <tr>
+          <td>R1C1</td>
+          <td>R1C2</td>
+        </tr>
+        <tr>
+          <td>R2C1</td>
+          <td>R2C2</td>
+        </tr>
+      </table>
+      <p>Explanation: table displays tabular data with rows and columns.</p>
+    </section>
+
+    <hr>
+
+    <!-- Section 2: Inline Elements -->
+    <section id="inline">
+      <h2>Inline Elements</h2>
+
+      <!-- span -->
+      <p>Within this sentence, a <span>span wraps inline text</span> without forcing a new line.</p>
+      <p>Explanation: span is an inline container for phrasing content.</p>
+
+      <!-- a -->
+      <p>This is a sentence with an <a href="#top" title="Back to top">inline hyperlink</a> embedded inside.</p>
+      <p>Explanation: a creates inline links to locations or pages.</p>
+
+      <!-- b -->
+      <p>Use <b>bold text</b> for visual emphasis within a sentence.</p>
+      <p>Explanation: b visually draws attention without semantic importance.</p>
+
+      <!-- i -->
+      <p>Terms can be <i>italicized</i> to offset idiomatic or alternate voice text.</p>
+      <p>Explanation: i indicates text offset from normal prose.</p>
+
+      <!-- u -->
+      <p>An <u>underlined phrase</u> can be shown inline for annotation.</p>
+      <p>Explanation: u renders an unarticulated annotation (typically underlined).</p>
+
+      <!-- strong -->
+      <p>Use <strong>strong emphasis</strong> to indicate importance.</p>
+      <p>Explanation: strong conveys semantic importance.</p>
+
+      <!-- em -->
+      <p>Use <em>emphasis</em> to stress a word in a sentence.</p>
+      <p>Explanation: em indicates stress emphasis semantically.</p>
+
+      <!-- sup -->
+      <p>A classic formula is E = mc<sup>2</sup> written inline.</p>
+      <p>Explanation: sup raises text as superscript within a line.</p>
+
+      <!-- sub -->
+      <p>Chemical notation like H<sub>2</sub>O uses subscript inline.</p>
+      <p>Explanation: sub lowers text as subscript within a line.</p>
+
+      <!-- mark -->
+      <p>Highlight a phrase with <mark>inline marking</mark> for context.</p>
+      <p>Explanation: mark highlights text relevant to the current context.</p>
+
+      <!-- abbr -->
+      <p>The acronym <abbr title="HyperText Markup Language">HTML</abbr> appears inline with a tooltip.</p>
+      <p>Explanation: abbr provides an expansion via the title attribute.</p>
+
+      <!-- code -->
+      <p>Inline code looks like <code>&lt;div&gt;content&lt;/div&gt;</code> inside a sentence.</p>
+      <p>Explanation: code represents computer code fragments inline.</p>
+    </section>
+
+    <hr>
+
+    <!-- Section 3: Comparison Table -->
+    <section id="comparison">
+      <h2>Inline vs Block Comparison</h2>
+      <table border="1" cellpadding="6" cellspacing="0">
+        <caption>Differences Between Inline and Block Elements</caption>
+        <thead>
+          <tr>
+            <th>Block Elements</th>
+            <th>Inline Elements</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>&lt;div&gt;</td>
+            <td>&lt;span&gt;</td>
+          </tr>
+          <tr>
+            <td>&lt;p&gt;</td>
+            <td>&lt;a&gt;</td>
+          </tr>
+          <tr>
+            <td>&lt;h1&gt;–&lt;h6&gt;</td>
+            <td>&lt;b&gt;</td>
+          </tr>
+          <tr>
+            <td>&lt;ul&gt;</td>
+            <td>&lt;i&gt;</td>
+          </tr>
+          <tr>
+            <td>&lt;ol&gt;</td>
+            <td>&lt;u&gt;</td>
+          </tr>
+          <tr>
+            <td>&lt;blockquote&gt;</td>
+            <td>&lt;strong&gt;</td>
+          </tr>
+          <tr>
+            <td>&lt;hr&gt;</td>
+            <td>&lt;em&gt;</td>
+          </tr>
+          <tr>
+            <td>&lt;table&gt;</td>
+            <td>&lt;code&gt;</td>
+          </tr>
+          <tr>
+            <td>&lt;section&gt;</td>
+            <td>&lt;abbr&gt;</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <hr>
+
+    <!-- Bottom navigation -->
+    <p><a href="#top">Back to Top</a></p>
+  </body>
+</html>

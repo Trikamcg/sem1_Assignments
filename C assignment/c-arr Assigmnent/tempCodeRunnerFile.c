@@ -1,1 +1,3 @@
-printf("%c",32);
+for (int k = 1; k <= i; k++)
+                {
+                    printf("*");}
