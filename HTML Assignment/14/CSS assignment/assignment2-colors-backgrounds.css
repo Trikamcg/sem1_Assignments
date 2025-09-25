@@ -1,0 +1,133 @@
+/* Base styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+header#site-title {
+  background-color: #0077cc;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Card base styling */
+.card {
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  border-radius: 8px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* ✅ Solid background card */
+.card.solid {
+  background-color: #4caf50;
+}
+
+/* ✅ Linear gradient card */
+.card.linear {
+  background: linear-gradient(135deg, #ff6f61, #ffcc70);
+}
+
+/* ✅ Radial gradient card */
+.card.radial {
+  background: radial-gradient(circle at top left, #2196f3, #21cbf3);
+}
+
+/* CTA button styling */
+.cta {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: rgba(255,255,255,0.2);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* ✅ Background image demo */
+.bg-demo {
+  background-image: url("http://codinggita.com/wp-content/uploads/placeholder-800x400.png");
+  background-repeat: repeat-x;
+  background-position: center;
+  background-size: contain;
+  padding: 40px;
+  margin: 20px auto;
+  max-width: 800px;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+  border-radius: 8px;
+}
+
+/* ✅ Compare cover vs contain */
+.bg-compare {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px;
+}
+
+.compare {
+  width: 300px;
+  height: 200px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 8px;
+  background-image: url("http://codinggita.com/wp-content/uploads/placeholder-800x400.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.cover {
+  background-size: cover;
+  background-color: #333;
+}
+
+.contain {
+  background-size: contain;
+  background-color: #555;
+}
+
+/* ✅ Parallax effect */
+.parallax {
+  background-image: url("http://codinggita.com/wp-content/uploads/placeholder-800x400.png");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  padding: 60px 20px;
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+  margin: 40px auto;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .bg-compare {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .compare {
+    width: 90%;
+  }
+
+  .card {
+    margin: 10px;
+  }
+}

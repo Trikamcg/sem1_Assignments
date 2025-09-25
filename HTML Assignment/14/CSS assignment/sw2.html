@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swiggy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #fff;
+            color: rgba(2, 6, 12, 0.75);
+            line-height: 1.4;
+        }
+        
+        .header {
+            position: sticky;
+            top: 0;
+            background: #fff;
+            box-shadow: 0 2px 12px rgba(2, 6, 12, 0.04);
+            z-index: 1000;
+            padding: 0 20px;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: 800;
+            color: #ff5200;
+            letter-spacing: -1px;
+        }
+        
+        .location-selector {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            border-radius: 12px;
+            background: #f0f0f5;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .location-selector:hover {
+            background: #e8e8ee;
+        }
+        
+        .location-text {
+            font-weight: 600;
+            color: rgba(2, 6, 12, 0.92);
+        }
+        
+        .location-area {
+            color: rgba(2, 6, 12, 0.6);
+            font-size: 14px;
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        
+        .header-link {
+            color: rgba(2, 6, 12, 0.75);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .header-link:hover {
+            color: #ff5200;
+        }
+        
+        .cart-button {
+            background: #ff5200;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+            position: relative;
+        }
+        
+        .cart-button:hover {
+            background: #e04700;
+            transform: translateY(-1px);
+        }
+        
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .hero-section {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .hero-title {
+            font-size: 48px;
+            font-weight: 800;
+            color: rgba(2, 6, 12, 0.92);
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+        
+        .hero-subtitle {
+            font-size: 20px;
+            color: rgba(2, 6, 12, 0.6);
+            margin-bottom: 40px;
+        }
+        
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .search-box {
+            width: 100%;
+            padding: 20px 24px;
+            border: 2px solid #f0f0f5;
+            border-radius: 16px;
+            font-size: 18px;
+            outline: none;
+            transition: all 0.2s;
+            background: #fff;
+        }
+        
+        .search-box:focus {
+            border-color: #ff5200;
+            box-shadow: 0 8px 24px rgba(255, 82, 0, 0.1);
+        }
+        
+        .categories-section {
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: rgba(2, 6, 12, 0.92);
+            margin-bottom: 32px;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        
+        .category-card {
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+            border-radius: 20px;
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(2, 6, 12, 0.08);
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 1px solid rgba(2, 6, 12, 0.05);
+        }
+        
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(2, 6, 12, 0.12);
+        }
+        
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            background: linear-gradient(135deg, #ff5200 0%, #ff7300 100%);
+            color: white;
+        }
+        
+        .category-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: rgba(2, 6, 12, 0.92);
+            margin-bottom: 8px;
+        }
+        
+        .category-desc {
+            color: rgba(2, 6, 12, 0.6);
+            font-size: 16px;
+        }
+        
+        .products-section {
+            margin-bottom: 60px;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        
+        .product-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(2, 6, 12, 0.08);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(2, 6, 12, 0.12);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: rgba(2, 6, 12, 0.3);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: rgba(2, 6, 12, 0.92);
+            margin-bottom: 8px;
+        }
+        
+        .product-desc {
+            color: rgba(2, 6, 12, 0.6);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+        
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .delivery-time {
+            background: #00d4aa;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .add-button {
+            background: #ff5200;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .add-button:hover {
+            background: #e04700;
+            transform: scale(1.05);
+        }
+        
+        .footer {
+            background: #02060c;
+            color: white;
+            padding: 60px 20px 40px;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-section h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .footer-section a:hover {
+            color: #ff5200;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                height: auto;
+                padding: 20px 0;
+                gap: 20px;
+            }
+            
+            .header-actions {
+                gap: 16px;
+            }
+            
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .hero-subtitle {
+                font-size: 18px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Swiggy</div>
+            <div class="location-selector">
+                <div>
+                    <div class="location-text">Home</div>
+                    <div class="location-area">Kalol, Gujarat, India</div>
+                </div>
+            </div>
+            <nav class="header-actions">
+                <a href="#" class="header-link">Instamart</a>
+                <a href="#" class="header-link">Search</a>
+                <a href="#" class="header-link">Offers</a>
+                <a href="#" class="header-link">Help</a>
+                <a href="#" class="header-link">Sign In</a>
+                <a href="#" class="cart-button">Cart</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <h1 class="hero-title">Order groceries in minutes</h1>
+            <p class="hero-subtitle">Get fresh groceries delivered to your doorstep in 10-15 minutes</p>
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="Search for groceries, snacks, and more">
+            </div>
+        </section>
+
+        <section class="categories-section">
+            <h2 class="section-title">Shop by Category</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">🍎</div>
+                    <div class="category-name">Fresh Produce</div>
+                    <div class="category-desc">Fruits & Vegetables</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🥛</div>
+                    <div class="category-name">Dairy & Bakery</div>
+                    <div class="category-desc">Milk, Bread & More</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🍜</div>
+                    <div class="category-name">Packaged Food</div>
+                    <div class="category-desc">Snacks & Instant Food</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🧴</div>
+                    <div class="category-name">Personal Care</div>
+                    <div class="category-desc">Health & Beauty</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="products-section">
+            <h2 class="section-title">Popular Products</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">🥤</div>
+                    <div class="product-info">
+                        <div class="product-name">Coca-Cola Zero Sugar</div>
+                        <div class="product-desc">300 ml can</div>
+                        <div class="product-footer">
+                            <div class="delivery-time">4 MINS</div>
+                            <button class="add-button">ADD</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">💪</div>
+                    <div class="product-info">
+                        <div class="product-name">MuscleBlaze Whey Protein</div>
+                        <div class="product-desc">2 kg chocolate flavor</div>
+                        <div class="product-footer">
+                            <div class="delivery-time">4 MINS</div>
+                            <button class="add-button">ADD</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">⚡</div>
+                    <div class="product-info">
+                        <div class="product-name">Red Bull Energy Drink</div>
+                        <div class="product-desc">250 ml multipack</div>
+                        <div class="product-footer">
+                            <div class="delivery-time">4 MINS</div>
+                            <button class="add-button">ADD</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">🥥</div>
+                    <div class="product-info">
+                        <div class="product-name">Storia Coconut Water</div>
+                        <div class="product-desc">1 ltr natural</div>
+                        <div class="product-footer">
+                            <div class="delivery-time">4 MINS</div>
+                            <button class="add-button">ADD</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">🍫</div>
+                    <div class="product-info">
+                        <div class="product-name">Cadbury Dairy Milk</div>
+                        <div class="product-desc">18g chocolate bar</div>
+                        <div class="product-footer">
+                            <div class="delivery-time">4 MINS</div>
+                            <button class="add-button">ADD</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">🍜</div>
+                    <div class="product-info">
+                        <div class="product-name">MAGGI 2-Minute Noodles</div>
+                        <div class="product-desc">280g masala flavor</div>
+                        <div class="product-footer">
+                            <div class="delivery-time">4 MINS</div>
+                            <button class="add-button">ADD</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Swiggy One</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="#">Help & Support</a></li>
+                    <li><a href="#">Partner with us</a></li>
+                    <li><a href="#">Ride with us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>We deliver to</h3>
+                <ul>
+                    <li><a href="#">Bangalore</a></li>
+                    <li><a href="#">Delhi</a></li>
+                    <li><a href="#">Mumbai</a></li>
+                    <li><a href="#">Pune</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
