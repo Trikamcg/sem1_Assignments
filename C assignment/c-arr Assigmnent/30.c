@@ -14,13 +14,11 @@ int main()
         {
             printf("%c", k + 64);
         }
-         if (m > 1)
-        {
             for (int a = m-1; a >=1 ; a--)
             {
                 printf("%c", a + 64);
             }
-        }
+        
   
         printf("\n");
     }
@@ -32,13 +30,13 @@ int main()
             printf(" ");
         }
 
-        if (i > 1)
-        {
+        
+        
             for (int a = 1; a < i; a++)
             {
                 printf("%c", a + 64);
             }
-        }
+        
         for (int k = i; k >= 1; k--)
         {
             printf("%c", k + 64);
