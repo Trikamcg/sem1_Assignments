@@ -4,23 +4,25 @@ int main()
 {
     int n;
     scanf("%d", &n);
-    for (int i = 1; i <= n; i++)
-    {
-        for(int k=n-i;k>=1;k--){
-            printf(" ");
-        }
-        for (int j = 1; j <= i; j++)
-        {
-            
-                printf("%d ", j);
-            
-        }
-        for(int a=1;a<=i-1;a++){
-            if(i>1){
-                printf("%d",a);
-            }
-        }
-        printf("\n");
-    }
+    for(int i=1;i<2*n;i++){
+        for(int j=1;j<=i;j++){
+            int count=0;
+            for(int j=1;j<=2*n-1;j++){
+                if(i+j>=n+1&&i-j<=n-1&&j-i<=n-1&&i+j<=3*n-1){
+                    if(j<=n){
+                        ++count;
+                        printf("%d",count);
 
+                    }else{
+                        printf("%d",--count);
+                    }
+                    
+                
+                }else{
+                    printf(" ");
+                }
+            }
+
+        }printf("\n");
+    }
 }
